@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background: #1398fd;
+    position: relative;
+}
+.container{
+    /*position: absolute;*/
+    width: 130vw;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerNew{
+    /*position: absolute;*/
+    width: 100vw;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 30%;
+}
+.row .image{
+    flex-grow: 1;
+    flex-basis: 0;
+    border-radius:5px;
+}
+.row .content{
+    flex-grow: 1;
+    flex-basis: 0;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+
+}
+.row .image{
+        flex-grow: 3;
+}
+.row .content .main{
+    padding: 10px;
+    flex-grow: 1;
+}
+.row .content .main .title{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.row .content .main .user .form-group{
+    margin-bottom: 39px;
+    height: 50px;
+}
+.row .content .main .user{
+    box-sizing: border-box;
+    display: block;
+}
+.row .content .main .user .form-group  input{
+    font-size: .8rem;
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+    height: 50px;
+}
+
+.row .content .main .user button{
+    font-size: .8rem;
+    background: #1398fd;
+    border-radius: 10rem;
+    padding: 0.75rem 1rem;
+    height: 50px;
+    font-size: 15px;
+}
+
+.row .content .main .determine{
+    text-align: center;
+    font-size: 13px;
+
+}
+.row .content .main .determine a{
+    text-decoration: none;
+    background-color: transparent;
+}

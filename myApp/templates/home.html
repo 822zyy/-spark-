@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/res/style.css">
+    <link rel="stylesheet" href="/static/static/css/icons.min.css">
+    <title></title>
+    <style>
+        .btn-primary {
+            color: #fff;
+            background-color: #5b85d9;
+            border-color: #5b85d9;
+            height: 30px;
+            width: 70px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="fill-parent"
+      dg-chart-auto-resize="true"
+      dg-chart-options="{title:{show:false},legend:{top:0},grid:{top:25}}"
+      dg-chart-theme="{color:'#F0F0F0',actualBackgroundColor:'#000c3b'}">
+<div class="head">
+    <div class="title">
+        <div class="title-left"></div>
+        <div class="title-value"><label>招聘信息可视化栏</label></div>
+        <div class="title-right"></div>
+        <div style="position: absolute;right: 0;top: 0;">
+            <a href="/myApp/salaryChar" style="text-decoration: none;color: #FFFFFF">
+                <button type="button" class="btn btn-primary">系统页面</button>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="layout layout-left-top">
+        <div class="panel">
+            <div class="title"><label>热门城市薪资</label></div>
+            {#			<div class="chart" dg-chart-widget=""></div>#}
+            <div id="mainA" style="width: 100%;height:275px;"></div>
+        </div>
+    </div>
+    <div class="layout layout-left-center">
+        <div class="panel">
+            <div class="title"><label>薪资待遇</label></div>
+            {#			<div class="chart" dg-chart-widget=""></div>#}
+            <div id="mainB" style="width: 100%;height:270px;"></div>
+        </div>
+    </div>
+    <div class="layout layout-left-bottom">
+        <div class="panel">
+            <div class="title"><label>薪资经验分析</label></div>
+            {#			<div class="chart" dg-chart-widget=""></div>#}
+            <div id="mainC" style="width: 100%;height:230px;"></div>
+        </div>
+    </div>
+    <div class="layout layout-center-top">
+        <div class="panel">
+            <div class="chart chart-left" dg-chart-widget="">
+                <div style="text-align: center;margin-top: 35px">
+                    <i class="ti ti-cash" style="color: #5b85d9;font-size: 37px;padding-top: 15px"></i>
+                    <span style="color: #86cfda;font-size: 20px">最高薪资</span>
+                    <p style="color: #86cfda;">40000</p>
+                </div>
+            </div>
+            <div class="chart chart-center" dg-chart-widget="">
+                <div style="text-align: center;margin-top: 35px">
+                    <i class="ti ti-brand-chrome" style="color: #5b85d9;font-size: 37px;padding-top: 15px"></i>
+                    <span style="color: #86cfda;font-size: 20px">专业相关</span>
+                    <p style="color: #86cfda;">计算机</p>
+                </div>
+            </div>
+            <div class="chart chart-right" dg-chart-widget="">
+                <div style="text-align: center;margin-top: 35px">
+                    <i class="ti ti-window" style="color: #5b85d9;font-size: 37px;padding-top: 15px"></i>
+                    <span style="color: #86cfda;font-size: 20px">热门城市</span>
+                    <p style="color: #86cfda;">杭州</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout layout-center-bottom">
+        <div class="panel border-all">
+            <div class="chart" dg-chart-widget=""></div>
+            {#			<div class="border-foot"></div>#}
+            {#            <div class="title"><label>城市数据</label></div>#}
+            <div id="mainD" style="width: 100%;height:400px;"></div>
+        </div>
+    </div>
+    <div class="layout layout-right-top">
+        <div class="panel">
+            <div class="title"><label>公司规模</label></div>
+            {#			<div class="chart" dg-chart-widget=""></div>#}
+            <div id="mainE" style="width: 100%;height:275px;"></div>
+        </div>
+    </div>
+    <div class="layout layout-right-center">
+        <div class="panel">
+            <div class="title"><label>热门职位去向</label></div>
+            {#			<div class="chart" dg-chart-widget=""></div>#}
+            <div id="mainF"
+                 style="width: 100%;height:400px;display: flex;justify-content: center;align-items: center;"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="/static/static/js/echarts.js"></script>
+<script src="/static/static/js/china.js"></script>
+{#<script src="/static/static/js/echarts.min.js"></script>#}
+{#//mainA#  热门城市薪资#}
+<script>
+    var chartDom = document.getElementById('mainA');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        xAxis: {
+            type: 'value'
+        },
+        yAxis: {
+            type: 'category',
+            data: ['杭州', '北京', '上海', '成都', '武汉', '青岛', '深圳'],
+            axisLabel: {
+                fontSize: 13,
+                formatter: function (value) {
+                    return value.length > 5 ? value.slice(0, 5) + '...' : value;
+                }
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        series: [
+            {
+                data: [12000, 20000, 15000, 8000, 7000, 6000, 18000],
+                type: 'bar',
+                itemStyle: {
+                    borderRadius: [5, 5, 0, 0],
+                    borderColor: 'rgba(0,0,0,0.5)',
+                    borderWidth: 1,
+                    color: '#3275e5'
+                }
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+{#//mainB   薪资待遇#}
+<script>
+    var chartDom = document.getElementById('mainB');
+    var myChart = echarts.init(chartDom);
+    var option;
+    var img = 'data:image/png;base64,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';
+
+    var trafficWay = [{
+        name: '10k-20k',
+        value: 30
+    }, {
+        name: '2k-5k',
+        value: 20
+    }, {
+        name: '5k-10k',
+        value: 40
+    }, {
+        name: '20k+',
+        value: 10
+    }];
+
+    var data = [];
+    var color = ['#00ffff', '#00cfff', '#006ced', '#ffe000', '#ffa800', '#ff5b00', '#ff3000']
+    for (var i = 0; i < trafficWay.length; i++) {
+        data.push({
+            value: trafficWay[i].value,
+            name: trafficWay[i].name,
+            itemStyle: {
+                normal: {
+                    borderWidth: 4,
+                    shadowBlur: 20,
+                    borderColor: color[i],
+                    shadowColor: color[i]
+                }
+            }
+        }, {
+            value: 2,
+            name: '',
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    color: 'rgba(0, 0, 0, 0)',
+                    borderColor: 'rgba(0, 0, 0, 0)',
+                    borderWidth: 0
+                }
+            }
+        });
+    }
+    var seriesOption = [{
+        name: '',
+        type: 'pie',
+        clockWise: false,
+        radius: [40, 50],
+        hoverAnimation: false,
+        itemStyle: {
+            normal: {
+                label: {
+                    show: true,
+                    position: 'outside',
+                    color: '#ddd',
+                    formatter: function (params) {
+                        var percent = 0;
+                        var total = 0;
+                        for (var i = 0; i < trafficWay.length; i++) {
+                            total += trafficWay[i].value;
+                        }
+                        percent = ((params.value / total) * 100).toFixed(0);
+                        if (params.name !== '') {
+                            return '薪资区间：' + params.name + '\n' + '\n' + '占百分比：' + percent + '%';
+                        } else {
+                            return '';
+                        }
+                    },
+                },
+                labelLine: {
+                    length: 15,
+                    length2: 30,
+                    show: true,
+                    color: '#00ffff'
+                }
+            }
+        },
+        data: data
+    }];
+    option = {
+        {#backgroundColor: '#0A2E5D',#}
+        color: color,
+        title: {
+            {#text: '交通方式',#}
+            top: '48%',
+            textAlign: "center",
+            left: "49%",
+            textStyle: {
+                color: '#fff',
+                fontSize: 22,
+                fontWeight: '200'
+            }
+        },
+        graphic: {
+            elements: [{
+                type: "image",
+                z: 3,
+                style: {
+                    image: img,
+                    width: 100,
+                    height: 100
+                },
+                left: 'center',
+                top: 'center',
+                position: [100, 100]
+            }]
+        },
+        tooltip: {
+            show: false
+        },
+    {#legend: {#}
+    {#icon: "circle",#}
+    {#orient: 'horizontal',#}
+    {#// x: 'left',#}
+    {#data: ['火车', '飞机', '客车', '轮渡'],#}
+    {#leftMargin: 0,#}
+    {#bottom: 30,#}
+    {#aligncenter: 'center',#}
+    {#textStyle: {#}
+    {#    color: "#fff"#}
+    {#    },#}
+    {#    itemGap: 10#}
+    {#},#}
+        toolbox: {
+            show: false
+        }
+    ,
+        series: seriesOption
+    }
+    option && myChart.setOption(option);
+</script>
+{#//mainC   薪资经验分析#}
+<script>
+    var chartDom = document.getElementById('mainC');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    // 年龄段
+    let xLabel = ['22-25岁', '26-30岁', '31-35岁', '36-40岁', '41-45岁', '46-50岁'];
+
+    // 最高薪资数据
+    let maxSalary = [8000, 15000, 20000, 25000, 22000, 18000];
+
+    // 最低薪资数据
+    let minSalary = [4000, 7000, 10000, 13000, 12000, 10000];
+
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'transparent',
+            axisPointer: {
+                lineStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0,
+                            color: 'rgba(126,199,255,0)' // 0% 处的颜色
+                        }, {
+                            offset: 0.5,
+                            color: 'rgba(126,199,255,1)' // 100% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: 'rgba(126,199,255,0)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                    }
+                },
+            },
+            formatter: (p) => {
+                let dom = `<div style="width: 79px;
+	height: 50px;;color:#fff;position: relative;">
+        <svg style="position: absolute;top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);" class="svg" xmlns="http://www.w3.org/2000/svg" width="100" height="71" viewBox="0 0 84 55">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #07172c;
+            fill-opacity: 0.8;
+            stroke: #a7d8ff;
+            stroke-linejoin: round;
+            stroke-opacity: 0.2;
+            stroke-width: 1px;
+            fill-rule: evenodd;
+          }
+
+        </style>
+      </defs>
+      <path id="矩形_419" data-name="矩形 419" class="cls-1" d="M266,595h74v50H266V624.046L261,620l5-3.984V595Z"
+        transform="translate(-258.5 -592.5)" />
+    </svg>
+        <div style="padding: 4px 8px 4px 14px;display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;position: relative;z-index: 1;">
+            <div style="margin-bottom: 4px;width:100%;display:${p[0] ? 'flex' : 'none'};justify-content:space-between;align-items:center;">
+                <span style="font-size:14px;color:#7ec7ff;">${p[0] ? p[0].seriesName : ''}</span>
+                <span style="font-size:14px;color:#fff;">${p[0] ? p[0].data : ''}</span>
+            </div>
+            <div style="width:100%;height:100%;display:${p[1] ? 'flex' : 'none'};justify-content:space-between;align-items:center;">
+                <span style="font-size:14px;color:#7ec7ff;">${p[1] ? p[1].seriesName : ''}</span>
+                <span style="font-size:14px;color:#fff;">${p[1] ? p[1].data : ''}</span>
+            </div>
+        </div>
+    </div>`;
+                return dom;
+            }
+        },
+        legend: {
+            align: "left",
+            right: '10%',
+            top: '10%',
+            type: 'plain',
+            textStyle: {
+                color: '#7ec7ff',
+                fontSize: 16
+            },
+            itemGap: 25,
+            itemWidth: 18,
+            icon: 'path://M0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z',
+            data: [
+                {
+                    name: '最高薪资'
+                },
+                {
+                    name: '最低薪资'
+                }
+            ]
+        },
+        grid: {
+            top: '20%',
+            left: '15%',
+            right: '10%',
+            bottom: '20%',
+        },
+        xAxis: [{
+            type: 'category',
+            boundaryGap: false,
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: '#233653'
+                },
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#7ec7ff',
+                    padding: 16,
+                    fontSize: 12
+                },
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#192a44'
+                },
+            },
+            axisTick: {
+                show: false,
+            },
+            data: xLabel
+        }],
+        yAxis: [{
+            nameTextStyle: {
+                color: "#7ec7ff",
+                fontSize: 16,
+                padding: 10
+            },
+            min: 0,
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#192a44'
+                },
+            },
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: "#233653"
+                }
+            },
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    color: '#7ec7ff',
+                    padding: 16
+                },
+            },
+            axisTick: {
+                show: false,
+            },
+        }],
+        series: [{
+            name: '最高薪资',
+            type: 'line',
+            symbol: 'circle',
+            showAllSymbol: true,
+            symbolSize: 0,
+            smooth: true,
+            lineStyle: {
+                normal: {
+                    width: 5,
+                    color: "rgba(25,163,223,1)"
+                },
+                borderColor: 'rgba(0,0,0,.4)',
+            },
+            itemStyle: {
+                color: "rgba(25,163,223,1)",
+                borderColor: "#646ace",
+                borderWidth: 2
+            },
+            tooltip: {
+                show: true
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: "rgba(25,163,223,.3)"
+                    },
+                        {
+                            offset: 1,
+                            color: "rgba(25,163,223, 0)"
+                        }
+                    ], false),
+                    shadowColor: 'rgba(25,163,223, 0.5)',
+                    shadowBlur: 20
+                }
+            },
+            data: maxSalary
+        }, {
+            name: '最低薪资',
+            type: 'line',
+            symbol: 'circle',
+            showAllSymbol: true,
+            symbolSize: 0,
+            smooth: true,
+            lineStyle: {
+                normal: {
+                    width: 5,
+                    color: "rgba(10,219,250,1)"
+                },
+                borderColor: 'rgba(0,0,0,.4)',
+            },
+            itemStyle: {
+                color: "rgba(10,219,250,1)",
+                borderColor: "#646ace",
+                borderWidth: 2
+            },
+            tooltip: {
+                show: true
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: "rgba(10,219,250,.3)"
+                    },
+                        {
+                            offset: 1,
+                            color: "rgba(10,219,250, 0)"
+                        }
+                    ], false),
+                    shadowColor: 'rgba(10,219,250, 0.5)',
+                    shadowBlur: 20
+                }
+            },
+            data: minSalary
+        }]
+    };
+
+    option && myChart.setOption(option);
+</script>
+{#//mainD   地图#}
+<script>
+    var chartDom = document.getElementById('mainD');
+    var myChart = echarts.init(chartDom);
+    var option;
+    var geoCoordMap = {
+        '北京': [116.4551, 40.2539],
+        '上海': [121.4648, 31.2891],
+        '广州': [113.5107, 23.2196],
+        '深圳': [114.5435, 22.5439],
+        '成都': [103.9526, 30.7617],
+        '杭州': [119.5313, 29.8773],
+        '南京': [118.8062, 31.9208],
+        '武汉': [114.3896, 30.6628],
+        '西安': [109.1162, 34.2004],
+        '长沙': [113.0823, 28.2568],
+        '苏州': [120.6519, 31.3989],
+        '重庆': [107.7539, 30.1904],
+        '合肥': [117.29, 32.0581],
+        '郑州': [113.4668, 34.6234],
+        '青岛': [120.4651, 36.3373],
+        '宁波': [121.5967, 29.6466],
+        '无锡': [120.3442, 31.5527],
+        '厦门': [118.1689, 24.6478],
+        '佛山': [112.8955, 23.1097],
+        '南昌': [116.0046, 28.6633],
+        '常州': [119.4543, 31.5582],
+        '南宁': [108.479, 23.1152],
+        '济南': [117.1582, 36.8701],
+        '大连': [122.2229, 39.4409],
+        '东莞': [113.8953, 22.901],
+        '福州': [119.4543, 25.9222],
+        '昆明': [102.9199, 25.4663],
+        '沈阳': [123.1238, 42.1216],
+        '哈尔滨': [127.9688, 45.368],
+        '唐山': [118.4766, 39.6826],
+        '石家庄': [114.4995, 38.1006],
+        '太原': [112.3352, 37.9413],
+        '烟台': [120.7397, 37.5128],
+        '兰州': [103.5901, 36.3043],
+        '泉州': [118.3228, 25.1147],
+        '南通': [121.1023, 32.1625],
+        '绍兴': [120.564, 29.7565],
+        '嘉兴': [120.9155, 30.6354],
+        '长春': [125.8154, 44.2584],
+        '贵阳': [106.6992, 26.7682],
+        '珠海': [113.7305, 22.1155],
+        '海口': [110.3893, 19.8516],
+        '包头': [110.3467, 41.4899],
+        '中山': [113.4229, 22.478],
+        '洛阳': [112.454, 34.6197],
+        '呼和浩特': [111.4124, 40.4901],
+        '威海': [121.9482, 37.1393],
+        '乌鲁木齐': [87.9236, 43.5883],
+        '潍坊': [119.0918, 36.524],
+        '西宁': [101.4038, 36.8207],
+        '银川': [106.3586, 38.1775],
+        '扬州': [119.4653, 32.8162],
+        '镇江': [119.4763, 31.9702],
+        '株洲': [113.5327, 27.0319],
+        '襄阳': [112.2501, 32.2292],
+        '泰州': [120.0586, 32.5525],
+        '宜昌': [111.3109, 30.7328],
+        '南平': [118.136, 26.1823],
+        '三亚': [109.5119, 18.2528],
+        '邯郸': [114.4775, 36.535],
+        '衡阳': [112.6077, 26.9008],
+        '蚌埠': [117.3897, 32.9168],
+        '贵港': [109.5989, 23.1115],
+        '茂名': [110.9312, 21.6682],
+        '泸州': [105.4578, 28.8903],
+        '平顶山': [113.1927, 33.7661],
+        '柳州': [109.3799, 24.9774],
+        '临沂': [118.3118, 35.2936],
+        '泰安': [117.0264, 36.0516]
+    };
+
+    var jobData = [
+        {name: '北京', value: 1234},
+        {name: '上海', value: 1100},
+        {name: '广州', value: 905},
+        {name: '深圳', value: 1050},
+        {name: '成都', value: 789},
+        {name: '杭州', value: 1200},
+        {name: '南京', value: 768},
+        {name: '武汉', value: 234},
+        {name: '西安', value: 567},
+        {name: '长沙', value: 640},
+        {name: '苏州', value: 123},
+        {name: '重庆', value: 456},
+        {name: '合肥', value: 234},
+        {name: '郑州', value: 345},
+        {name: '青岛', value: 567},
+        {name: '宁波', value: 234},
+        {name: '无锡', value: 345},
+        {name: '厦门', value: 678},
+        {name: '佛山', value: 234},
+        {name: '南昌', value: 123},
+        {name: '常州', value: 456},
+        {name: '南宁', value: 234},
+        {name: '济南', value: 345},
+        {name: '大连', value: 456},
+        {name: '东莞', value: 123},
+        {name: '福州', value: 345},
+        {name: '昆明', value: 234},
+        {name: '沈阳', value: 567},
+        {name: '哈尔滨', value: 234},
+        {name: '唐山', value: 123},
+        {name: '石家庄', value: 456},
+        {name: '太原', value: 234},
+        {name: '烟台', value: 345},
+        {name: '兰州', value: 123},
+        {name: '泉州', value: 234},
+        {name: '南通', value: 123},
+        {name: '绍兴', value: 456},
+        {name: '嘉兴', value: 234},
+        {name: '长春', value: 345},
+        {name: '贵阳', value: 234},
+        {name: '珠海', value: 123},
+        {name: '海口', value: 456},
+        {name: '包头', value: 234},
+        {name: '中山', value: 123},
+        {name: '洛阳', value: 345},
+        {name: '呼和浩特', value: 234},
+        {name: '威海', value: 123},
+        {name: '乌鲁木齐', value: 456},
+        {name: '潍坊', value: 234},
+        {name: '西宁', value: 123},
+        {name: '银川', value: 345},
+        {name: '扬州', value: 234},
+        {name: '镇江', value: 123},
+        {name: '株洲', value: 456},
+        {name: '襄阳', value: 234},
+        {name: '泰州', value: 123},
+        {name: '宜昌', value: 345},
+        {name: '南平', value: 234},
+        {name: '三亚', value: 123},
+        {name: '邯郸', value: 456},
+        {name: '衡阳', value: 234},
+        {name: '蚌埠', value: 123},
+        {name: '贵港', value: 345},
+        {name: '茂名', value: 234},
+        {name: '泸州', value: 123},
+        {name: '平顶山', value: 456},
+        {name: '柳州', value: 234},
+        {name: '临沂', value: 123},
+        {name: '泰安', value: 345}
+    ];
+
+    var option = {
+        {#backgroundColor: '#000',#}
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                return params.name + ' : ' + params.value[2];
+            }
+        },
+        visualMap: {
+            min: 0,
+            max: 1400,
+            left: 'left',
+            top: 'top',
+            text: ['高', '低'],
+            calculable: true,
+            color: ['#d94e5d', '#eac736', '#50a3ba'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        title: {
+            text: '全国主要城市职位分布数据',
+            subtext: '城市数据',
+            {#sublink: 'http://www.lagou.com',#}
+            left: 'center',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        geo: {
+            map: 'china',
+            zoom: 1.25,
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            roam: true, //是否允许缩放
+            layoutCenter: ['50%', '50%'], //地图位置
+            layoutSize: '90%',
+            itemStyle: {
+                normal: {
+                    color: '#04284e', //地图背景色
+                    borderColor: '#5bc1c9' //省市边界线
+                },
+                emphasis: {
+                    color: 'rgba(37, 43, 61, .5)' //悬浮背景
+                }
+            }
+        },
+        series: [
+            {
+                name: '职位数量',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: jobData.map(function (item) {
+                    var coord = geoCoordMap[item.name];
+                    return {
+                        name: item.name,
+                        value: coord.concat(item.value)
+                    };
+                }),
+                symbolSize: function (val) {
+                    return val[2] / 50; // 调整圆圈大小
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#ddb926'
+                    }
+                }
+            }
+        ]
+    };
+    option && myChart.setOption(option);
+
+</script>
+{#//mainE   公司规模#}
+<script>
+    var chartDom = document.getElementById('mainE');
+    var myChart = echarts.init(chartDom);
+    var option;
+    option = {
+        {#backgroundColor: "#ffffff",#}
+        color: ["#37A2DA", "#32C5E9", "#67E0E3", "#9FE6B8", "#FFDB5C",],
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c}"
+        },
+
+        calculable: true,
+        series: [
+            {
+                name: '公司规模占比',
+                type: 'funnel',
+                left: '10%',
+                top: 60,
+                bottom: 60,
+                width: '80%',
+
+                {#min: 0,#}
+                {#max: 100,#}
+                {#minSize: '0%',#}
+                {#maxSize: '100%',#}
+                sort: 'descending',
+                gap: 2,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'inside'
+                    },
+                    emphasis: {
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        length: 10,
+                        lineStyle: {
+                            width: 1,
+                            type: 'solid'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderColor: 'black',
+                        borderWidth: 1
+                    }
+                },
+                data: [
+                    {value: 100, name: '10-50'},
+                    {value: 80, name: '1000+'},
+                    {value: 60, name: '100-500'},
+                    {value: 21, name: '50-150'},
+                    {value: 10, name: '0-10'},
+
+                ]
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+{#//mainF#  薪资top#}
+<script>
+    var chartDom = document.getElementById('mainF');
+    var myChart = echarts.init(chartDom);
+    var option;
+    var typeList = ["大数据", "Hadoop", "Hive", "Spark", "HBase", "大数据开发工程师", "运维工程师",
+        "数据库管理员", "SQL", "数据分析师", "ETL工程师", "数据仓库", "数据采集", "数据处理",
+        "云计算工程师", "爬虫工程师", "Java开发", "Python开发", "C++工程师", "前端开发",
+        "后端开发", "全栈工程师", "机器学习工程师", "人工智能研究员", "深度学习", "自然语言处理",
+        "计算机视觉", "嵌入式开发", "物联网工程师", "区块链开发", "智能合约", "DevOps工程师",
+        "Kubernetes", "Docker", "Linux运维", "网络安全工程师", "渗透测试", "系统架构师",
+        "解决方案架构师", "测试开发工程师", "自动化测试", "性能测试", "产品经理", "技术经理",
+        "算法工程师", "推荐系统工程师", "音视频开发", "GIS开发", "Unity3D开发", "Unreal引擎开发",
+        "移动端开发", "Android开发", "iOS开发", "Flutter开发", "React", "Vue.js", "Node.js",
+        "Spring框架", "MyBatis", "微服务架构", "分布式系统", "消息队列", "Redis", "MongoDB",
+        "Elasticsearch", "Neo4j", "TensorFlow", "PyTorch", "PaddlePaddle", "OpenCV",
+        "FPGA开发", "数字电路设计", "芯片验证工程师", "5G通信", "网络协议开发", "云原生开发",
+        "SRE工程师", "BI开发", "数据科学家", "量化工程师", "ERP开发", "CRM开发", "SAP实施",
+        "工业互联网", "边缘计算", "服务网格", "Serverless", "量子计算", "RPA开发"];
+
+
+    var selectedTypes = typeList.slice(0, 50);
+
+    var nodes = selectedTypes.map(function (type, index) {
+        return {
+            id: index,
+            name: type,
+            symbolSize: Math.round(Math.random() * 20) + 10,
+            itemStyle: {
+                color: 'rgb(' + [
+                    Math.round(Math.random() * 255),
+                    Math.round(Math.random() * 255),
+                    Math.round(Math.random() * 255)
+                ].join(',') + ')'
+            }
+        };
+    });
+
+    var edges = [];
+    for (var i = 0; i < nodes.length - 1; i++) {
+        for (var j = i + 1; j < nodes.length; j++) {
+            if (Math.random() > 0.95) {
+                edges.push({
+                    source: i,
+                    target: j
+                });
+            }
+        }
+    }
+
+    option = {
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series: [
+            {
+                type: 'graph',
+                layout: 'circular',
+                data: nodes,
+                edges: edges,
+                emphasis: {
+                    focus: 'adjacency',
+                    label: {
+                        position: 'right',
+                        show: true
+                    }
+                },
+                roam: false,
+                lineStyle: {
+                    width: 0.5,
+                    curveness: 0.3,
+                    opacity: 0.7
+                },
+                label: {
+                    show: true,
+                    position: 'right',
+                }
+            }
+        ]
+    };
+    option && myChart.setOption(option);
+
+</script>
+</html>

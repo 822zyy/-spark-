@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="utf-8">
+    <title>求职智能分析系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <!-- App css -->
+    <link href="/static/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/app.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="body" class="dark-sidebar">
+<!-- leftbar-tab-menu -->
+<div class="left-sidebar">
+    <!-- LOGO -->
+    <div class="brand">
+        <a href="" class="logo">
+                    <span>
+                        <img src="/static/static/picture/logo-sm.png" alt="logo-small" class="logo-sm">
+                    </span>
+            <span>
+{#                        <img src="/static/static/picture/logo.png" alt="logo-large" class="logo-lg logo-light">#}
+{#                        <img src="/static/static/picture/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">#}
+                        <span style="color: #fff">求职智能分析系统</span>
+                    </span>
+        </a>
+    </div>
+    <div class="sidebar-user-pro media border-end">
+        <div class="position-relative mx-auto">
+            <img src="/static/static/picture/user-4.jpg" alt="user" class="rounded-circle thumb-md">
+            <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
+        </div>
+        <div class="media-body ms-2 user-detail align-self-center">
+            <h5 class="font-14 m-0 fw-bold">{{ userInfo.username }} </h5>
+            <p class="opacity-50 mb-0">用户名</p>
+        </div>
+    </div>
+    <div class="border-end">
+        <ul class="nav nav-tabs menu-tab nav-justified" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Main" role="tab" aria-selected="true"><span>Welcome！</span></a>
+            </li>
+            {#                    <li class="nav-item">#}
+            {#                        <a class="nav-link" data-bs-toggle="tab" href="#Extra" role="tab" aria-selected="false"><span>更多</span></a>#}
+            {#                    </li>#}
+        </ul>
+    </div>
+    <!-- Tab panes -->
+
+    <!--end logo-->
+    <div class="menu-content h-100" data-simplebar="">
+        <div class="menu-body navbar-vertical">
+            <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
+                <!-- Navigation -->
+                <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
+                    <li class="menu-label mt-0 text-primary font-12 fw-semibold"><span>导航栏</span><br><span
+                            class="font-10 text-secondary fw-normal">Navigation Bar</span></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarAnalytics">
+                            <i class="ti ti-stack menu-icon"></i>
+                            <span>数据可视化</span>
+                        </a>
+                        <div class="collapse " id="sidebarAnalytics">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/salaryChar/">薪资分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/educationChar/" class="nav-link ">经验分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/cityChar/" class="nav-link ">城市分析</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarAnalytics-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarCrypto" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarCrypto">
+                            <i class="ti ti-forms menu-icon"></i>
+                            <span>数据表格</span>
+                        </a>
+                        <div class="collapse " id="sidebarCrypto">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/dataChar/">工作职位数据</a>
+                                </li><!--end nav-item-->
+
+                            </ul><!--end nav-->
+                        </div><!--end sidebarCrypto-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarProjects" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarProjects">
+                            <i class="ti ti-user menu-icon"></i>
+                            <span>个人信息</span>
+                        </a>
+                        <div class="collapse " id="sidebarProjects">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/Usercenter/">用户中心</a>
+                                </li><!--end nav-item-->
+                                {#                                <li class="nav-item">#}
+                                {#                                    <a class="nav-link" href="/myApp/likedata">收藏数据</a>#}
+                                {#                                </li><!--end nav-item-->#}
+                            </ul><!--end nav-->
+                        </div><!--end sidebarProjects-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-cloud menu-icon"></i>
+                            <span>数据词云</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/cloudeChar">岗位词云</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-brand-asana menu-icon"></i>
+                            <span>个性推荐</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/recommend/">公司推荐</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarEcommerce-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/myApp/dp_page/"><i class="ti ti-brand-hipchat menu-icon"></i><span>智能分析</span></a>
+                    </li><!--end nav-item-->
+            </div><!--end sidebarEcommerce-->
+            </li><!--end nav-item-->
+        </div><!--end sidebarCollapse-->
+    </div>
+</div>
+</div>
+<!-- end left-sidenav-->
+<!-- end leftbar-menu-->
+
+<!-- Top Bar Start -->
+<!-- Top Bar Start -->
+<div class="topbar">
+    <!-- Navbar -->
+    <nav class="navbar-custom" id="navbar-custom">
+        <ul class="list-unstyled topbar-nav float-end mb-0">
+            {#                    <li class="dropdown">#}
+            {#                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">#}
+            {#                        <img src="/static/static/picture/us_flag.jpg" alt="" class="thumb-xxs rounded">#}
+            {#                    </a>#}
+            {#                        <div class="dropdown-menu">#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/us_flag.jpg" alt="" height="15" class="me-2">English</a>#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/spain_flag.jpg" alt="" height="15" class="me-2">Spanish</a>#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/germany_flag.jpg" alt="" height="15" class="me-2">German</a>#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/french_flag.jpg" alt="" height="15" class="me-2">French</a>#}
+            {#                        </div>#}
+            {#                    </li><!--end topbar-language-->#}
+            {##}
+            {#                    <li class="dropdown notification-list">#}
+            {#                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">#}
+            {#                            <i class="ti ti-mail"></i>#}
+            {#                        </a>#}
+            {#                        <div class="dropdown-menu dropdown-menu-end dropdown-lg pt-0">#}
+            {##}
+            {#                            <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">#}
+            {#                                Emails <span class="badge bg-soft-primary badge-pill">3</span>#}
+            {#                            </h6>#}
+            {#                            <div class="notification-menu" data-simplebar="">#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-1.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing and industry.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">10 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-4.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Meeting with designers</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">40 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-2.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">UX 3 Task complete.</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">1 hr ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-5.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 hrs ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-3.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Payment Successfull</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                            </div>#}
+            {#                            <!-- All-->#}
+            {#                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">#}
+            {#                                View all <i class="fi-arrow-right"></i>#}
+            {#                            </a>#}
+            {#                        </div>#}
+            {#                    </li>#}
+            {##}
+            {#                    <li class="dropdown notification-list">#}
+            {#                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">#}
+            {#                            <i class="ti ti-bell"></i>#}
+            {#                            <span class="alert-badge"></span>#}
+            {#                        </a>#}
+            {#                        <div class="dropdown-menu dropdown-menu-end dropdown-lg pt-0">#}
+            {##}
+            {#                            <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">#}
+            {#                                Notifications <span class="badge bg-soft-primary badge-pill">2</span>#}
+            {#                            </h6>#}
+            {#                            <div class="notification-menu" data-simplebar="">#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-chart-arcs"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing and industry.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">10 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-device-computer-camera"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Meeting with designers</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">40 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-diamond"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">UX 3 Task complete.</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">1 hr ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-drone"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 hrs ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-users"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Payment Successfull</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                            </div>#}
+            {#                            <!-- All-->#}
+            {#                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">#}
+            {#                                View all <i class="fi-arrow-right"></i>#}
+            {#                            </a>#}
+            {#                        </div>#}
+            {#                    </li>#}
+
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <img src="/static/static/picture/user-4.jpg" alt="profile-user"
+                             class="rounded-circle me-2 thumb-sm">
+                        <div>
+                            <small class="d-none d-md-block font-11">{{ userInfo.username }}</small>
+                            <span class="d-none d-md-block fw-semibold font-12">用户名<i class="mdi mdi-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="/myApp/Usercenter/"><i
+                            class="ti ti-user font-16 me-1 align-text-bottom"></i> 个人信息</a>
+                    <a class="dropdown-item" href="/myApp/home"><i
+                            class="ti ti-chart-area-line font-16 me-1 align-text-bottom"></i> 可视化大屏</a>
+                    <div class="dropdown-divider mb-0"></div>
+                    <a class="dropdown-item" href="/myApp/logOut"><i
+                            class="ti ti-power font-16 me-1 align-text-bottom"></i> 退出登录</a>
+                </div>
+            </li><!--end topbar-profile-->
+            {#                    <li class="notification-list">#}
+            {#                        <a class="nav-link arrow-none nav-icon offcanvas-btn" href="#" data-bs-toggle="offcanvas" data-bs-target="#Appearance" role="button" aria-controls="Rightbar">#}
+            {#                            <i class="ti ti-settings ti-spin"></i>#}
+            {#                        </a>#}
+            {#                    </li>#}
+        </ul><!--end topbar-nav-->
+
+        <ul class="list-unstyled topbar-nav mb-0">
+            <li>
+                <button class="nav-link button-menu-mobile nav-icon" id="togglemenu">
+                    <i class="ti ti-menu-2"></i>
+                </button>
+            </li>
+            {#                    <li class="hide-phone app-search">#}
+            {#                        <form role="search" action="#" method="get">#}
+            {#                            <input type="search" name="search" class="form-control top-search mb-0" placeholder="Type text...">#}
+            {#                            <button type="submit"><i class="ti ti-search"></i></button>#}
+            {#                        </form>#}
+            {#                    </li>#}
+        </ul>
+    </nav>
+    <!-- end navbar-->
+</div>
+<!-- Top Bar End -->
+<!-- Top Bar End -->
+
+<div class="page-wrapper">
+
+    <!-- Page Content-->
+    <div class="page-content-tab">
+
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <div class="float-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">系统</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item"><a href="#">数据词云</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item active">岗位词云</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">词云分析</h4>
+                    </div><!--end page-title-box-->
+                </div><!--end col-->
+            </div>
+            <!-- end page title end breadcrumb -->
+
+            {#主板页面经验分析#}
+            <div class="row">
+                <div class="col-9">
+                    <div id="mainA" style="width: 100%;height:600px;"></div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>选择城市</h5>
+                        </div>
+                        <div class="card-body" style="max-height: 600px; overflow-y: auto;">
+                            <div class="city-selector">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="beijing"
+                                           value="北京" checked>
+                                    <label class="form-check-label" for="beijing">北京</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="shanghai"
+                                           value="上海">
+                                    <label class="form-check-label" for="shanghai">上海</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="guangzhou"
+                                           value="广州">
+                                    <label class="form-check-label" for="guangzhou">广州</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="shenzhen"
+                                           value="深圳">
+                                    <label class="form-check-label" for="shenzhen">深圳</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="hangzhou"
+                                           value="杭州">
+                                    <label class="form-check-label" for="hangzhou">杭州</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="nanjing"
+                                           value="南京">
+                                    <label class="form-check-label" for="nanjing">南京</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="chengdu"
+                                           value="成都">
+                                    <label class="form-check-label" for="chengdu">成都</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="wuhan" value="武汉">
+                                    <label class="form-check-label" for="wuhan">武汉</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="xian" value="西安">
+                                    <label class="form-check-label" for="xian">西安</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cityRadio" id="suzhou"
+                                           value="苏州">
+                                    <label class="form-check-label" for="suzhou">苏州</label>
+                                </div>
+                                <div class="form-check">
+                                    {#                                    <input class="form-check-input" type="radio" name="cityRadio" id="suzhou"#}
+                                    {#                                           value="苏州">#}
+                                    <label class="form-check-label" for="more">更多城市等待加入…</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {#            <div class="row">#}
+            {#                <div class="col-lg-12">#}
+            {#                    <div class="card">#}
+            {#                        <div class="card-header">#}
+            {#                            <div class="row align-items-center">#}
+            {#                                <div class="col">#}
+            {#                                    <h4 class="card-title">相关职业数据</h4>#}
+            {#                                </div><!--end col-->#}
+            {#                            </div>  <!--end row-->#}
+            {#                        </div><!--end card-header-->#}
+            {#                        <div class="card-body">#}
+            {#                            <div id="mainA" style="width: 100%;height: 550px;">#}
+            {##}
+            {#                            </div>#}
+            {#                        </div><!--end card-body-->#}
+            {#                    </div><!--end card-->#}
+            {##}
+            {#                </div> <!--end col-->#}
+            {##}
+            {#            </div><!--end row-->#}
+        </div><!-- container -->
+
+    </div><!-- container -->
+    <!--Start Rightbar-->
+    <!--Start Rightbar/offcanvas-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="Appearance" aria-labelledby="AppearanceLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
+            <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h6>Account Settings</h6>
+            <div class="p-2 text-start mt-3">
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch1">
+                    <label class="form-check-label" for="settings-switch1">Auto updates</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch2" checked="">
+                    <label class="form-check-label" for="settings-switch2">Location Permission</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="settings-switch3">
+                    <label class="form-check-label" for="settings-switch3">Show offline Contacts</label>
+                </div><!--end form-switch-->
+            </div><!--end /div-->
+            <h6>General Settings</h6>
+            <div class="p-2 text-start mt-3">
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch4">
+                    <label class="form-check-label" for="settings-switch4">Show me Online</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch5" checked="">
+                    <label class="form-check-label" for="settings-switch5">Status visible to all</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="settings-switch6">
+                    <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
+                </div><!--end form-switch-->
+            </div><!--end /div-->
+        </div><!--end offcanvas-body-->
+    </div>
+    <!--end Rightbar/offcanvas-->
+    <!--end Rightbar-->
+
+    <!--Start Footer-->
+    <!-- Footer Start -->
+    {#                <footer class="footer text-center text-sm-start">Copyright &copy; 2022.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></footer>#}
+    <!-- end Footer -->
+    <!--end footer-->
+</div>
+<!-- end page content -->
+</div>
+<!-- end page-wrapper -->
+
+<!-- Javascript  -->
+
+<script src="/static/static/js/apexcharts.min.js"></script>
+<script src="/static/static/js/analytics-index.init.js"></script>
+<script src="/static/static/js/echarts-wordcloud.js"></script>
+
+
+<!-- App js -->
+<script src="/static/static/js/app.js"></script>
+
+</body>
+<script src="/static/static/js/echarts.js"></script>
+{#词云图#}
+<script>
+    const typeList = ["大数据", "Hadoop", "Hive", "Spark", "HBase", "大数据开发工程师", "运维工程师",
+        "数据库管理员", "SQL", "数据分析师", "ETL工程师", "数据仓库", "数据采集", "数据处理",
+        "云计算工程师", "爬虫工程师", "Java开发", "Python开发", "C++工程师", "前端开发",
+        "后端开发", "全栈工程师", "机器学习工程师", "人工智能研究员", "深度学习", "自然语言处理",
+        "计算机视觉", "嵌入式开发", "物联网工程师", "区块链开发", "智能合约", "DevOps工程师",
+        "Kubernetes", "Docker", "Linux运维", "网络安全工程师", "渗透测试", "系统架构师",
+        "解决方案架构师", "测试开发工程师", "自动化测试", "性能测试", "产品经理", "技术经理",
+        "算法工程师", "推荐系统工程师", "音视频开发", "GIS开发", "Unity3D开发", "Unreal引擎开发",
+        "移动端开发", "Android开发", "iOS开发", "Flutter开发", "React", "Vue.js", "Node.js",
+        "Spring框架", "MyBatis", "微服务架构", "分布式系统", "消息队列", "Redis", "MongoDB",
+        "Elasticsearch", "Neo4j", "TensorFlow", "PyTorch", "PaddlePaddle", "OpenCV",
+        "FPGA开发", "数字电路设计", "芯片验证工程师", "5G通信", "网络协议开发", "云原生开发",
+        "SRE工程师", "BI开发", "数据科学家", "量化工程师", "ERP开发", "CRM开发", "SAP实施",
+        "工业互联网", "边缘计算", "服务网格", "Serverless", "量子计算", "RPA开发"];
+
+    // 生成随机职位数据函数
+    function generateJobData() {
+        return typeList.map(job => ({
+            name: job,
+            value: Math.floor(Math.random() * 200) + 50
+        }));
+    }
+
+    // 为每个城市生成数据
+    const cityJobsData = {
+        '北京': generateJobData(),
+        '上海': generateJobData(),
+        '广州': generateJobData(),
+        '深圳': generateJobData(),
+        '杭州': generateJobData(),
+        '南京': generateJobData(),
+        '成都': generateJobData(),
+        '武汉': generateJobData(),
+        '西安': generateJobData(),
+        '苏州': generateJobData()
+    };
+
+    var chartDom = document.getElementById('mainA');
+    var myChart = echarts.init(chartDom);
+
+    let colorList = [
+        '#CF4645', '#B580B2', '#29008A', '#146A90', '#8956FF', '#70C9A8',
+        '#40a9ff', '#1890ff', '#ffd666', '#ffc53d', '#ff6392', '#17c3b2',
+        '#48cae4', '#97d2fb', '#83bcff', '#91e5f6', '#9381ff', '#adf7b6',
+        '#ffc069', '#ffa940', '#fa8c16', '#eccbd9', '#ffadad'
+    ];
+
+    function createOption(city) {
+        return {
+            backgroundColor: '#ffffff',
+            tooltip: {
+                show: true,
+                formatter: function (params) {
+                    return `${params.name}: ${params.value}个职位`;
+                }
+            },
+            title: {
+                text: `${city}热门IT职位分布`,
+                left: 'left',
+                top: 20,
+                textStyle: {
+                    fontSize: 16,
+                    {#fontColor: 'green'#}
+                }
+            },
+            series: [{
+                type: 'graph',
+                layout: 'force',
+                force: {
+                    repulsion: 120,
+                    edgeLength: 15,
+                    gravity: 0.2
+                },
+                roam: true,
+                label: {
+                    show: true
+                },
+                data: cityJobsData[city].map(item => ({
+                    name: item.name,
+                    value: item.value,
+                    symbolSize: 0,
+                    draggable: true,
+                    label: {
+                        color: colorList[Math.floor(Math.random() * colorList.length)],
+                        fontSize: Math.max(Math.log2(item.value) * 3, 12),
+                        fontWeight: 'bold',
+                        emphasis: {
+                            show: true,
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    }
+                }))
+            }]
+        };
+    }
+
+    // 初始化显示北京数据
+    myChart.setOption(createOption('北京'));
+
+    // 添加城市选择事件监听
+    document.querySelectorAll('input[name="cityRadio"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                myChart.setOption(createOption(e.target.value));
+            }
+        });
+    });
+
+    // 响应式调整
+    window.addEventListener('resize', () => {
+        myChart.resize();
+    });
+</script>
+
+<style>
+    .city-selector {
+        padding: 10px;
+    }
+
+    .form-check {
+        margin-bottom: 12px;
+    }
+
+    .form-check-input {
+        cursor: pointer;
+    }
+
+    .form-check-label {
+        cursor: pointer;
+        padding-left: 5px;
+        font-size: 14px;
+    }
+
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #eee;
+    }
+
+    .card-header h5 {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+    }
+</style>
+<script>
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option && myChart.setOption(option);
+</script>
+</html>

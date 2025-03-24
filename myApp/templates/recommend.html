@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="utf-8">
+    <title>求职智能分析系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <!-- App css -->
+    <link href="/static/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/app.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/favorite.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .job-item {
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .job-item:hover {
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .tag, .welfare-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            background: #f0f5ff;
+            color: #4a90e2;
+            border: 1px solid #d6e4ff;
+        }
+
+        .welfare-tag {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+
+        .welfare-tag i {
+            font-size: 10px;
+        }
+
+        .job-description-popup {
+            display: none;
+            position: absolute;
+            left: 50%; /* 改为left: 50% 显示在中间 */
+            top: 0;
+            transform: translateX(-50%); /* 水平居中对齐 */
+            width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            z-index: 1000;
+            margin-top: 10px; /* 修改为margin-top */
+        }
+
+        .job-item:hover .job-description-popup {
+            display: block;
+        }
+
+        .description-content {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .description-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .description-content::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 3px;
+        }
+
+        .description-content::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 3px;
+        }
+
+        .requirement {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .post-time {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .job-location {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .company-name {
+            font-weight: 500;
+        }
+    </style>
+
+</head>
+
+<body id="body" class="dark-sidebar">
+<!-- leftbar-tab-menu -->
+<div class="left-sidebar">
+    <!-- LOGO -->
+    <div class="brand">
+        <a href="" class="logo">
+                    <span>
+                        <img src="/static/static/picture/logo-sm.png" alt="logo-small" class="logo-sm">
+                    </span>
+            <span>
+{#                        <img src="/static/static/picture/logo.png" alt="logo-large" class="logo-lg logo-light">#}
+{#                        <img src="/static/static/picture/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">#}
+                        <span style="color: #fff">求职智能分析系统</span>
+                    </span>
+        </a>
+    </div>
+    <div class="sidebar-user-pro media border-end">
+        <div class="position-relative mx-auto">
+            <img src="/static/static/picture/user-4.jpg" alt="user" class="rounded-circle thumb-md">
+            <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
+        </div>
+        <div class="media-body ms-2 user-detail align-self-center">
+            <h5 class="font-14 m-0 fw-bold">{{ userInfo.username }} </h5>
+            <p class="opacity-50 mb-0">用户名</p>
+        </div>
+    </div>
+    <div class="border-end">
+        <ul class="nav nav-tabs menu-tab nav-justified" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Main" role="tab" aria-selected="true"><span>Welcome！</span></a>
+            </li>
+            {#                    <li class="nav-item">#}
+            {#                        <a class="nav-link" data-bs-toggle="tab" href="#Extra" role="tab" aria-selected="false"><span>更多</span></a>#}
+            {#                    </li>#}
+        </ul>
+    </div>
+    <!-- Tab panes -->
+
+    <!--end logo-->
+    <div class="menu-content h-100" data-simplebar="">
+        <div class="menu-body navbar-vertical">
+            <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
+                <!-- Navigation -->
+                <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
+                    <li class="menu-label mt-0 text-primary font-12 fw-semibold"><span>导航栏</span><br><span
+                            class="font-10 text-secondary fw-normal">Navigation Bar</span></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarAnalytics">
+                            <i class="ti ti-stack menu-icon"></i>
+                            <span>数据可视化</span>
+                        </a>
+                        <div class="collapse " id="sidebarAnalytics">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/salaryChar/">薪资分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/educationChar/" class="nav-link ">经验分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/cityChar/" class="nav-link ">城市分析</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarAnalytics-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarCrypto" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarCrypto">
+                            <i class="ti ti-forms menu-icon"></i>
+                            <span>数据表格</span>
+                        </a>
+                        <div class="collapse " id="sidebarCrypto">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/dataChar/">工作职位数据</a>
+                                </li><!--end nav-item-->
+
+                            </ul><!--end nav-->
+                        </div><!--end sidebarCrypto-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarProjects" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarProjects">
+                            <i class="ti ti-user menu-icon"></i>
+                            <span>个人信息</span>
+                        </a>
+                        <div class="collapse " id="sidebarProjects">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/Usercenter/">用户中心</a>
+                                </li><!--end nav-item-->
+                                {#                                <li class="nav-item">#}
+                                {#                                    <a class="nav-link" href="/myApp/likedata">收藏数据</a>#}
+                                {#                                </li><!--end nav-item-->#}
+                            </ul><!--end nav-->
+                        </div><!--end sidebarProjects-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-cloud menu-icon"></i>
+                            <span>数据词云</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/cloudeChar">岗位词云</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarEcommerce-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-brand-asana menu-icon"></i>
+                            <span>个性推荐</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/recommend/">公司推荐</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarEcommerce-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/myApp/dp_page/"><i class="ti ti-brand-hipchat menu-icon"></i><span>智能分析</span></a>
+                    </li><!--end nav-item-->
+            </div><!--end sidebarCollapse-->
+        </div>
+    </div>
+</div>
+<!-- end left-sidenav-->
+<!-- end leftbar-menu-->
+
+<!-- Top Bar Start -->
+<!-- Top Bar Start -->
+<div class="topbar">
+    <!-- Navbar -->
+    <nav class="navbar-custom" id="navbar-custom">
+        <ul class="list-unstyled topbar-nav float-end mb-0">
+
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <img src="/static/static/picture/user-4.jpg" alt="profile-user"
+                             class="rounded-circle me-2 thumb-sm">
+                        <div>
+                            <small class="d-none d-md-block font-11">{{ userInfo.username }}</small>
+                            <span class="d-none d-md-block fw-semibold font-12">用户名<i class="mdi mdi-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="/myApp/Usercenter/"><i
+                            class="ti ti-user font-16 me-1 align-text-bottom"></i> 个人信息</a>
+                    <a class="dropdown-item" href="/myApp/home"><i
+                            class="ti ti-chart-area-line font-16 me-1 align-text-bottom"></i> 可视化大屏</a>
+                    <div class="dropdown-divider mb-0"></div>
+                    <a class="dropdown-item" href="/myApp/logOut"><i
+                            class="ti ti-power font-16 me-1 align-text-bottom"></i> 退出登录</a>
+                </div>
+            </li><!--end topbar-profile-->
+            {#                    <li class="notification-list">#}
+            {#                        <a class="nav-link arrow-none nav-icon offcanvas-btn" href="#" data-bs-toggle="offcanvas" data-bs-target="#Appearance" role="button" aria-controls="Rightbar">#}
+            {#                            <i class="ti ti-settings ti-spin"></i>#}
+            {#                        </a>#}
+            {#                    </li>#}
+        </ul><!--end topbar-nav-->
+
+        <ul class="list-unstyled topbar-nav mb-0">
+            <li>
+                <button class="nav-link button-menu-mobile nav-icon" id="togglemenu">
+                    <i class="ti ti-menu-2"></i>
+                </button>
+            </li>
+            {#                    <li class="hide-phone app-search">#}
+            {#                        <form role="search" action="#" method="get">#}
+            {#                            <input type="search" name="search" class="form-control top-search mb-0" placeholder="Type text...">#}
+            {#                            <button type="submit"><i class="ti ti-search"></i></button>#}
+            {#                        </form>#}
+            {#                    </li>#}
+        </ul>
+    </nav>
+    <!-- end navbar-->
+</div>
+<!-- Top Bar End -->
+<!-- Top Bar End -->
+
+<div class="page-wrapper">
+
+    <!-- Page Content-->
+    <div class="page-content-tab">
+
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <div class="float-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">系统</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item"><a href="#">个性推荐</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item active">公司推荐</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">公司推荐</h4>
+                    </div><!--end page-title-box-->
+                </div><!--end col-->
+            </div>
+            <!-- end page title end breadcrumb -->
+
+            {#主板页面#}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h4 class="card-title">推荐职位
+                                        {% if default_city %}
+                                            <small class="text-muted">(优先显示{{ default_city }}地区职位)</small>
+                                        {% endif %}
+                                    </h4>
+                                </div><!--end col-->
+                                <div class="col-auto">
+                                    <!-- 这里可以添加其他控件 -->
+                                    <form id="searchForm" class="d-flex gap-3">
+                                        <!-- 搜索关键词 -->
+                                        <input type="text" class="form-control form-control-sm" name="search"
+                                               placeholder="搜索职位、薪资、地区" value="{{ request.GET.search }}">
+                                        <!-- 搜索按钮 -->
+                                        <button type="submit" class="btn btn-primary btn-sm">搜索</button>
+                                    </form>
+                                </div><!--end col-->
+                            </div>  <!--end row-->
+                        </div><!--end card-header-->
+                        <div class="card-body">
+                            <div class="job-list">
+                                {% for job in recomData %}
+                                    <div class="job-item mb-3">
+                                        <!-- 职位标题和基本信息 -->
+                                        <div class="job-header d-flex justify-content-between align-items-start">
+                                            <div class="job-title-area">
+                                                <h5 class="job-title mb-1">{{ job.title }}</h5>
+                                                <span class="job-location me-3">
+                                        <i class="ti ti-map-pin me-1"></i>{{ job.address }}
+                                    </span>
+                                                <span class="job-salary text-primary">
+                                        <i class="ti ti-currency-yuan me-1"></i>{{ job.salary }}
+                                    </span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <button class="btn btn-icon btn-soft-primary btn-sm me-2 favorite-btn {% if job.is_favorited %}active{% endif %}"
+                                                        data-job-id="{{ job.id }}"
+                                                        onclick="toggleFavorite(this)"
+                                                        title="收藏职位">
+                                                    <i class="ti ti-star"
+                                                       {% if job.is_favorited %}style="color: #f9c32c;"{% endif %}></i>
+                                                </button>
+                                                {#                                                <button class="btn btn-icon btn-soft-primary btn-sm me-2 favorite-btn"#}
+                                                {#                                                        data-job-id="{{ job.id }}"#}
+                                                {#                                                        onclick="toggleFavorite(this)"#}
+                                                {#                                                        title="收藏职位">#}
+                                                {#                                                    <i class="ti ti-star"></i>#}
+                                                {#                                                </button>#}
+                                                <span class="post-time text-muted small">{{ job.post_time }}</span>
+                                            </div>
+                                            {#                                            <span class="post-time text-muted small">{{ job.post_time }}</span>#}
+                                        </div>
+
+                                        <!-- 公司信息和要求 -->
+                                        <div class="job-details mt-3">
+                                            <div class="company-info d-flex justify-content-between align-items-center mb-2">
+                                    <span class="company-name text-dark">
+                                        <i class="ti ti-building me-1"></i>{{ job.company }}
+                                    </span>
+                                                <div class="job-requirements">
+                                        <span class="requirement me-3">
+                                            <i class="ti ti-briefcase me-1"></i>{{ job.work_experience }}
+                                        </span>
+                                                    <span class="requirement">
+                                            <i class="ti ti-school me-1"></i>{{ job.education }}
+                                        </span>
+                                                </div>
+                                            </div>
+
+                                            <!-- 工作标签 -->
+                                            <div class="job-tags mb-2">
+                                                {% for tag in job.workTag %}
+                                                    <span class="tag">{{ tag }}</span>
+                                                {% endfor %}
+                                            </div>
+
+                                            <!-- 福利标签 -->
+                                            <div class="job-welfare">
+                                                {% for benefit in job.welfare %}
+                                                    <span class="welfare-tag">
+                                            <i class="ti ti-gift me-1"></i>{{ benefit }}
+                                        </span>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- 悬停显示的职位描述 -->
+                                        <div class="job-description-popup">
+                                            <h6 class="mb-2">{{ job.title }}</h6>
+                                            <div class="description-content">
+                                                <p class="mb-0">{{ job.work_content }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- 分页控件 -->
+                            <div class="pagination-container mt-4">
+                                <ul class="pagination justify-content-center">
+                                    {% if recomData.has_previous %}
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                               href="?page=1{% if search_query %}&search={{ search_query }}{% endif %}"
+                                               aria-label="First">
+                                                <span aria-hidden="true">&laquo;&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <!-- 上一页 -->
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page=
+                                                    {{ recomData.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}"
+                                               aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+
+                                    <!-- 页码 -->
+                                    {% if total_pages <= 10 %}
+                                        {% for i in page_range %}
+                                            {% if i == current_page %}
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ i }}</span>
+                                                </li>
+                                            {% else %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page=
+                                                            {{ i }}{% if search_query %}&search={{ search_query }}{% endif %}">{{ i }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                        {% for i in page_range %}
+                                            {% if i <= 10 or i == total_pages %}
+                                                {% if i == current_page %}
+                                                    <li class="page-item active">
+                                                        <span class="page-link">{{ i }}</span>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page=
+                                                                {{ i }}{% if search_query %}&search={{ search_query }}{% endif %}">{{ i }}</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% elif i == 11 %}
+                                                <li class="page-item disabled">
+                                                    <span class="page-link">...</span>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    <!-- 下一页 -->
+                                    {% if recomData.has_next %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page=
+                                                    {{ recomData.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}"
+                                               aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                        <!-- 末页 -->
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page=
+                                                    {{ total_pages }}{% if search_query %}&search={{ search_query }}{% endif %}"
+                                               aria-label="Last">
+                                                <span aria-hidden="true">&raquo;&raquo;</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+
+                            <!-- 添加搜索结果统计信息 -->
+                            <div class="text-center mt-3">
+                                <small class="text-muted">
+                                    {#                                    {% if search_query %}#}
+                                    {#                                        搜索 "{{ search_query }}" 找到 {{ total_count }} 个结果#}
+                                    {#                                    {% else %}#}
+                                    {#                                        共 {{ total_count }} 个职位（{{ default_city }}地区优先显示）#}
+                                    {#                                    {% endif %}#}
+                                </small>
+                            </div>
+                            {#                            <div class="pagination-container mt-4">#}
+                            {#                                <ul class="pagination justify-content-center">#}
+                            {#                                    {% if recomData.has_previous %}#}
+                            {#                                        <li class="page-item">#}
+                            {#                                            <a class="page-link"#}
+                            {#                                               href="?page={{ recomData.previous_page_number }}&search={{ search_query }}">#}
+                            {#                                                <i class="ti ti-chevron-left"></i>#}
+                            {#                                            </a>#}
+                            {#                                        </li>#}
+                            {#                                    {% else %}#}
+                            {#                                        <li class="page-item disabled">#}
+                            {#                                            <a class="page-link" href="#"><i class="ti ti-chevron-left"></i></a>#}
+                            {#                                        </li>#}
+                            {#                                    {% endif %}#}
+                            {##}
+                            {#                                    {% for i in recomData.paginator.page_range %}#}
+                            {#                                        {% if i == recomData.number %}#}
+                            {#                                            <li class="page-item active">#}
+                            {#                                                <a class="page-link"#}
+                            {#                                                   href="?page={{ i }}&search={{ search_query }}">{{ i }}</a>#}
+                            {#                                            </li>#}
+                            {#                                        {% else %}#}
+                            {#                                            <li class="page-item">#}
+                            {#                                                <a class="page-link"#}
+                            {#                                                   href="?page={{ i }}&search={{ search_query }}">{{ i }}</a>#}
+                            {#                                            </li>#}
+                            {#                                        {% endif %}#}
+                            {#                                    {% endfor %}#}
+                            {##}
+                            {#                                    {% if recomData.has_next %}#}
+                            {#                                        <li class="page-item">#}
+                            {#                                            <a class="page-link"#}
+                            {#                                               href="?page={{ recomData.next_page_number }}&search={{ search_query }}">#}
+                            {#                                                <i class="ti ti-chevron-right"></i>#}
+                            {#                                            </a>#}
+                            {#                                        </li>#}
+                            {#                                    {% else %}#}
+                            {#                                        <li class="page-item disabled">#}
+                            {#                                            <a class="page-link" href="#"><i class="ti ti-chevron-right"></i></a>#}
+                            {#                                        </li>#}
+                            {#                                    {% endif %}#}
+                            {#                                </ul>#}
+                            {#                            </div>#}
+                        </div>
+                        <!--end card-body-->
+                    </div><!--end card-->
+                </div><!-- end col-->
+            </div>
+            <!--end row-->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h4 class="card-title">我的收藏</h4>
+                                </div><!--end col-->
+                                <div class="col-auto">
+                                </div><!--end col-->
+                            </div>  <!--end row-->
+                        </div><!--end card-header-->
+                        <div class="card-body">
+                            <div class="row" id="favoriteJobsContainer">
+                                {% for favorite in favorite_jobs %}
+                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-primary mb-2">{{ favorite.title }}</h5>
+                                                <p class="text-success mb-2">{{ favorite.salary }}</p>
+                                                <p class="text-muted mb-3">{{ favorite.company }}</p>
+                                                <button class="btn btn-soft-danger btn-sm w-100"
+                                                        onclick="removeFavorite(this)"
+                                                        data-job-id="{{ favorite.id }}">
+                                                    取消收藏
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!--end card-body-->
+                    </div><!--end card-->
+                </div><!-- end col-->
+            </div><!--end row-->
+
+
+        </div><!-- container -->
+        <!--Start Rightbar-->
+        <!--Start Rightbar/offcanvas-->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="Appearance" aria-labelledby="AppearanceLabel">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
+                <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <h6>Account Settings</h6>
+                <div class="p-2 text-start mt-3">
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch1">
+                        <label class="form-check-label" for="settings-switch1">Auto updates</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch2" checked="">
+                        <label class="form-check-label" for="settings-switch2">Location Permission</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="settings-switch3">
+                        <label class="form-check-label" for="settings-switch3">Show offline Contacts</label>
+                    </div><!--end form-switch-->
+                </div><!--end /div-->
+                <h6>General Settings</h6>
+                <div class="p-2 text-start mt-3">
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch4">
+                        <label class="form-check-label" for="settings-switch4">Show me Online</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch5" checked="">
+                        <label class="form-check-label" for="settings-switch5">Status visible to all</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="settings-switch6">
+                        <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
+                    </div><!--end form-switch-->
+                </div><!--end /div-->
+            </div><!--end offcanvas-body-->
+        </div>
+        <!--end Rightbar/offcanvas-->
+        <!--end Rightbar-->
+
+        <!--Start Footer-->
+        <!-- Footer Start -->
+        {#                <footer class="footer text-center text-sm-start">Copyright &copy; 2022.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></footer>#}
+        <!-- end Footer -->
+        <!--end footer-->
+    </div>
+    <!-- end page content -->
+</div>
+<!-- end page-wrapper -->
+
+<!-- Javascript  -->
+
+<script src="/static/static/js/apexcharts.min.js"></script>
+<script src="/static/static/js/analytics-index.init.js"></script>
+<script src="/static/static/js/ecommerce-index.init.js"></script>
+<script src="/static/static/js/search.js"></script>
+<script src="/static/static/js/searchResults.js"></script>
+<script src="/static/static/js/favorite.js"></script>
+<!-- App js -->
+<script src="/static/static/js/app.js"></script>
+
+</body>
+<script src="/static/static/js/echarts.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // 每页显示的数量
+        const itemsPerPage = 7;
+        const $jobItems = $('.job-item');
+        const totalPages = Math.ceil($jobItems.length / itemsPerPage);
+
+        // 初始化分页
+        function showPage(page) {
+            $jobItems.hide();
+            $jobItems.slice((page - 1) * itemsPerPage, page * itemsPerPage).show();
+        }
+
+        // 显示第一页
+        showPage(1);
+
+        // 点击分页事件
+        $('.pagination').on('click', '.page-item', function (e) {
+            e.preventDefault();
+            const $this = $(this);
+
+            if (!$this.hasClass('active')) {
+                $('.pagination .active').removeClass('active');
+                $this.addClass('active');
+                const page = parseInt($this.find('.page-link').text());
+                showPage(page);
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // 搜索表单提交处理
+        const searchForm = document.getElementById('searchForm');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const searchQuery = this.querySelector('input[name="search"]').value.trim();
+                const currentUrl = new URL(window.location.href);
+                currentUrl.searchParams.set('search', searchQuery);
+                currentUrl.searchParams.set('page', '1'); // 重置到第一页
+                window.location.href = currentUrl.toString();
+            });
+        }
+    });
+</script>
+</html>

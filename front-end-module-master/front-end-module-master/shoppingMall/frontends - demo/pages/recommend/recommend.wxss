@@ -1,0 +1,63 @@
+/* pages/recommend/recommend.wxss *//* pages/makeupTest/makeupTest.wxss */
+.top{
+  height: 210px;
+  border: 2px solid #ddd;
+  display: flex;
+  padding:20px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.top-item{
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.top-item .text{
+  font-size: 14px;
+}
+.top-item image{
+  width: 50px;
+  height: 50px;
+}
+.shopList{
+  padding:15px 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  
+}
+.shop-item {
+  border: 1px solid #ddd;
+  width: 47%;
+  height: 600rpx;
+  margin-bottom: 3px;
+}
+.shop-item .cover{
+  width: 100%;
+  height: 78%;
+}
+.shop-item .cover image{
+  width: 100%;
+  height: 100%;
+}
+.shop-item .title{
+  font-weight: bold;
+  padding: 5px 10px;
+}
+.shop-item .text-control{
+  padding: 0 10px;
+  display: flex;
+  font-size: 22px;
+  display: flex;
+  color:rgb(121, 121, 121);
+  justify-content: space-between;
+}
+.likeNum{
+  font-size: 16px;
+}

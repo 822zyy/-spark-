@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="utf-8">
+    <title>求职智能分析系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <!-- App css -->
+    <link href="/static/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/app.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="body" class="dark-sidebar">
+<!-- leftbar-tab-menu -->
+<div class="left-sidebar">
+    <!-- LOGO -->
+    <div class="brand">
+        <a href="" class="logo">
+                    <span>
+                        <img src="/static/static/picture/logo-sm.png" alt="logo-small" class="logo-sm">
+                    </span>
+            <span>
+{#                        <img src="/static/static/picture/logo.png" alt="logo-large" class="logo-lg logo-light">#}
+{#                        <img src="/static/static/picture/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">#}
+                        <span style="color: #fff">求职智能分析系统</span>
+                    </span>
+        </a>
+    </div>
+    <div class="sidebar-user-pro media border-end">
+        <div class="position-relative mx-auto">
+            <img src="/static/static/picture/user-4.jpg" alt="user" class="rounded-circle thumb-md">
+            <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
+        </div>
+        <div class="media-body ms-2 user-detail align-self-center">
+            <h5 class="font-14 m-0 fw-bold">{{ userInfo.username }} </h5>
+            <p class="opacity-50 mb-0">用户名</p>
+        </div>
+    </div>
+    <div class="border-end">
+        <ul class="nav nav-tabs menu-tab nav-justified" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Main" role="tab" aria-selected="true"><span>Welcome！</span></a>
+            </li>
+            {#                    <li class="nav-item">#}
+            {#                        <a class="nav-link" data-bs-toggle="tab" href="#Extra" role="tab" aria-selected="false"><span>更多</span></a>#}
+            {#                    </li>#}
+        </ul>
+    </div>
+    <!-- Tab panes -->
+
+    <!--end logo-->
+    <div class="menu-content h-100" data-simplebar="">
+        <div class="menu-body navbar-vertical">
+            <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
+                <!-- Navigation -->
+                <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
+                    <li class="menu-label mt-0 text-primary font-12 fw-semibold"><span>导航栏</span><br><span
+                            class="font-10 text-secondary fw-normal">Navigation Bar</span></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarAnalytics">
+                            <i class="ti ti-stack menu-icon"></i>
+                            <span>数据可视化</span>
+                        </a>
+                        <div class="collapse " id="sidebarAnalytics">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/salaryChar/">薪资分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/educationChar/" class="nav-link ">经验分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/cityChar/" class="nav-link ">城市分析</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarAnalytics-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarCrypto" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarCrypto">
+                            <i class="ti ti-forms menu-icon"></i>
+                            <span>数据表格</span>
+                        </a>
+                        <div class="collapse " id="sidebarCrypto">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/dataChar/">工作职位数据</a>
+                                </li><!--end nav-item-->
+
+                            </ul><!--end nav-->
+                        </div><!--end sidebarCrypto-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarProjects" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarProjects">
+                            <i class="ti ti-user menu-icon"></i>
+                            <span>个人信息</span>
+                        </a>
+                        <div class="collapse " id="sidebarProjects">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/Usercenter/">用户中心</a>
+                                </li><!--end nav-item-->
+                                {#                                <li class="nav-item">#}
+                                {#                                    <a class="nav-link" href="/myApp/likedata">收藏数据</a>#}
+                                {#                                </li><!--end nav-item-->#}
+                            </ul><!--end nav-->
+                        </div><!--end sidebarProjects-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-cloud menu-icon"></i>
+                            <span>数据词云</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/cloudeChar">岗位词云</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarEcommerce-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-brand-asana menu-icon"></i>
+                            <span>个性推荐</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/recommend/">公司推荐</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarEcommerce-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/myApp/dp_page/"><i class="ti ti-brand-hipchat menu-icon"></i><span>智能分析</span></a>
+                    </li><!--end nav-item-->
+            </div><!--end sidebarCollapse-->
+        </div>
+    </div>
+</div>
+<!-- end left-sidenav-->
+<!-- end leftbar-menu-->
+
+<!-- Top Bar Start -->
+<!-- Top Bar Start -->
+<div class="topbar">
+    <!-- Navbar -->
+    <nav class="navbar-custom" id="navbar-custom">
+        <ul class="list-unstyled topbar-nav float-end mb-0">
+            {#                    <li class="dropdown">#}
+            {#                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">#}
+            {#                        <img src="/static/static/picture/us_flag.jpg" alt="" class="thumb-xxs rounded">#}
+            {#                    </a>#}
+            {#                        <div class="dropdown-menu">#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/us_flag.jpg" alt="" height="15" class="me-2">English</a>#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/spain_flag.jpg" alt="" height="15" class="me-2">Spanish</a>#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/germany_flag.jpg" alt="" height="15" class="me-2">German</a>#}
+            {#                            <a class="dropdown-item" href="#"><img src="/static/static/picture/french_flag.jpg" alt="" height="15" class="me-2">French</a>#}
+            {#                        </div>#}
+            {#                    </li><!--end topbar-language-->#}
+            {##}
+            {#                    <li class="dropdown notification-list">#}
+            {#                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">#}
+            {#                            <i class="ti ti-mail"></i>#}
+            {#                        </a>#}
+            {#                        <div class="dropdown-menu dropdown-menu-end dropdown-lg pt-0">#}
+            {##}
+            {#                            <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">#}
+            {#                                Emails <span class="badge bg-soft-primary badge-pill">3</span>#}
+            {#                            </h6>#}
+            {#                            <div class="notification-menu" data-simplebar="">#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-1.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing and industry.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">10 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-4.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Meeting with designers</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">40 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-2.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">UX 3 Task complete.</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">1 hr ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-5.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 hrs ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <img src="/static/static/picture/user-3.jpg" alt="" class="thumb-sm rounded-circle">#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Payment Successfull</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                            </div>#}
+            {#                            <!-- All-->#}
+            {#                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">#}
+            {#                                View all <i class="fi-arrow-right"></i>#}
+            {#                            </a>#}
+            {#                        </div>#}
+            {#                    </li>#}
+            {##}
+            {#                    <li class="dropdown notification-list">#}
+            {#                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">#}
+            {#                            <i class="ti ti-bell"></i>#}
+            {#                            <span class="alert-badge"></span>#}
+            {#                        </a>#}
+            {#                        <div class="dropdown-menu dropdown-menu-end dropdown-lg pt-0">#}
+            {##}
+            {#                            <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">#}
+            {#                                Notifications <span class="badge bg-soft-primary badge-pill">2</span>#}
+            {#                            </h6>#}
+            {#                            <div class="notification-menu" data-simplebar="">#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-chart-arcs"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing and industry.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">10 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-device-computer-camera"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Meeting with designers</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">40 min ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-diamond"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">UX 3 Task complete.</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">1 hr ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-drone"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>#}
+            {#                                            <small class="text-muted mb-0">It is a long established fact that a reader.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                                <!-- item-->#}
+            {#                                <a href="#" class="dropdown-item py-3">#}
+            {#                                    <small class="float-end text-muted ps-2">2 hrs ago</small>#}
+            {#                                    <div class="media">#}
+            {#                                        <div class="avatar-md bg-soft-primary">#}
+            {#                                            <i class="ti ti-users"></i>#}
+            {#                                        </div>#}
+            {#                                        <div class="media-body align-self-center ms-2 text-truncate">#}
+            {#                                            <h6 class="my-0 fw-normal text-dark">Payment Successfull</h6>#}
+            {#                                            <small class="text-muted mb-0">Dummy text of the printing.</small>#}
+            {#                                        </div><!--end media-body-->#}
+            {#                                    </div><!--end media-->#}
+            {#                                </a><!--end-item-->#}
+            {#                            </div>#}
+            {#                            <!-- All-->#}
+            {#                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">#}
+            {#                                View all <i class="fi-arrow-right"></i>#}
+            {#                            </a>#}
+            {#                        </div>#}
+            {#                    </li>#}
+
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <img src="/static/static/picture/user-4.jpg" alt="profile-user"
+                             class="rounded-circle me-2 thumb-sm">
+                        <div>
+                            <small class="d-none d-md-block font-11">{{ userInfo.username }}</small>
+                            <span class="d-none d-md-block fw-semibold font-12">用户名<i class="mdi mdi-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="/myApp/Usercenter/"><i
+                            class="ti ti-user font-16 me-1 align-text-bottom"></i> 个人信息</a>
+                    <a class="dropdown-item" href="/myApp/home"><i
+                            class="ti ti-chart-area-line font-16 me-1 align-text-bottom"></i> 可视化大屏</a>
+                    <div class="dropdown-divider mb-0"></div>
+                    <a class="dropdown-item" href="/myApp/logOut"><i
+                            class="ti ti-power font-16 me-1 align-text-bottom"></i> 退出登录</a>
+                </div>
+            </li><!--end topbar-profile-->
+            {#                    <li class="notification-list">#}
+            {#                        <a class="nav-link arrow-none nav-icon offcanvas-btn" href="#" data-bs-toggle="offcanvas" data-bs-target="#Appearance" role="button" aria-controls="Rightbar">#}
+            {#                            <i class="ti ti-settings ti-spin"></i>#}
+            {#                        </a>#}
+            {#                    </li>#}
+        </ul><!--end topbar-nav-->
+
+        <ul class="list-unstyled topbar-nav mb-0">
+            <li>
+                <button class="nav-link button-menu-mobile nav-icon" id="togglemenu">
+                    <i class="ti ti-menu-2"></i>
+                </button>
+            </li>
+            {#                    <li class="hide-phone app-search">#}
+            {#                        <form role="search" action="#" method="get">#}
+            {#                            <input type="search" name="search" class="form-control top-search mb-0" placeholder="Type text...">#}
+            {#                            <button type="submit"><i class="ti ti-search"></i></button>#}
+            {#                        </form>#}
+            {#                    </li>#}
+        </ul>
+    </nav>
+    <!-- end navbar-->
+</div>
+<!-- Top Bar End -->
+<!-- Top Bar End -->
+
+<div class="page-wrapper">
+
+    <!-- Page Content-->
+    <div class="page-content-tab">
+
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <div class="float-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">系统</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item"><a href="#">数据可视化</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item active">经验分析</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">经验分析</h4>
+                    </div><!--end page-title-box-->
+                </div><!--end col-->
+            </div>
+            <!-- end page title end breadcrumb -->
+
+            {#主板页面经验分析#}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h4 class="card-title">学历分析</h4>
+                                </div><!--end col-->
+                            </div>  <!--end row-->
+                        </div><!--end card-header-->
+                        <div class="card-body">
+                            <div id="mainA" style="width: 100%;height: 550px;">
+
+                            </div>
+                        </div><!--end card-body-->
+                    </div><!--end card-->
+
+                </div> <!--end col-->
+
+            </div><!--end row-->
+        </div><!-- container -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="card-title">经验分析</h4>
+                            </div><!--end col-->
+                        </div>  <!--end row-->
+                    </div><!--end card-header-->
+                    <div class="card-body">
+                        <div id="mainB" style="width: 100%;height: 550px;">
+
+                        </div>
+                    </div><!--end card-body-->
+                </div><!--end card-->
+
+            </div> <!--end col-->
+
+        </div><!--end row-->
+    </div><!-- container -->
+    <!--Start Rightbar-->
+    <!--Start Rightbar/offcanvas-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="Appearance" aria-labelledby="AppearanceLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
+            <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h6>Account Settings</h6>
+            <div class="p-2 text-start mt-3">
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch1">
+                    <label class="form-check-label" for="settings-switch1">Auto updates</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch2" checked="">
+                    <label class="form-check-label" for="settings-switch2">Location Permission</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="settings-switch3">
+                    <label class="form-check-label" for="settings-switch3">Show offline Contacts</label>
+                </div><!--end form-switch-->
+            </div><!--end /div-->
+            <h6>General Settings</h6>
+            <div class="p-2 text-start mt-3">
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch4">
+                    <label class="form-check-label" for="settings-switch4">Show me Online</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="settings-switch5" checked="">
+                    <label class="form-check-label" for="settings-switch5">Status visible to all</label>
+                </div><!--end form-switch-->
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="settings-switch6">
+                    <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
+                </div><!--end form-switch-->
+            </div><!--end /div-->
+        </div><!--end offcanvas-body-->
+    </div>
+    <!--end Rightbar/offcanvas-->
+    <!--end Rightbar-->
+
+    <!--Start Footer-->
+    <!-- Footer Start -->
+    {#                <footer class="footer text-center text-sm-start">Copyright &copy; 2022.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></footer>#}
+    <!-- end Footer -->
+    <!--end footer-->
+</div>
+<!-- end page content -->
+</div>
+<!-- end page-wrapper -->
+
+<!-- Javascript  -->
+
+<script src="/static/static/js/apexcharts.min.js"></script>
+<script src="/static/static/js/analytics-index.init.js"></script>
+
+
+<!-- App js -->
+<script src="/static/static/js/app.js"></script>
+
+</body>
+<script src="/static/static/js/echarts.js"></script>
+{#学历分析#}
+<script>
+    var chartDom = document.getElementById('mainA');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        title: {
+            text: '学历在招聘中的占比',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: 'bottom'
+        },
+        series: [
+            {
+                name: '学历',
+                type: 'pie',
+                radius: '50%',
+                data: [
+                    {value: 40, name: '本科'},
+                    {value: 25, name: '大专'},
+                    {value: 10, name: '博士'},
+                    {value: 15, name: '高中'},
+                    {value: 5, name: '初中'},
+                    {value: 5, name: '硕士'}
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+                label: {
+                    formatter: '{b}: {d}%'
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+</script>
+{#经验分析#}
+<script>
+    var chartDom = document.getElementById('mainB');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+
+    var salaryRanges = ['0-5000', '5000-7000', '7000-10000', '10000-20000', '20000以上'];
+    var experienceLevels = ['经验不限', '经验1~3年', '经验3~5年', '经验5~10年', '经验10年以上', '经验在校'];
+    var salaryData = {
+        '经验不限': [40, 30, 20, 8, 2],
+        '经验1~3年': [20, 30, 25, 15, 10],
+        '经验3~5年': [10, 20, 30, 25, 15],
+        '经验5~10年': [5, 10, 20, 35, 30],
+        '经验10年以上': [2, 5, 10, 28, 55],
+        '经验在校': [60, 25, 10, 4, 1]
+    };
+
+    var colors = ['#1f77b4', '#2ca02c', '#ff7f0e', '#d62728', '#9467bd'];
+
+    var seriesData = salaryRanges.map((range, index) => {
+        return {
+            name: range,
+            type: 'bar',
+            stack: 'total',
+            barWidth: '30%',
+            itemStyle: {
+                color: colors[index]
+            },
+            label: {
+                show: true,
+                position: 'inside',
+                formatter: '{c}%'
+            },
+            emphasis: {
+                focus: 'series',
+                label: {
+                    show: true,
+                    formatter: '{c}%'
+                }
+            },
+            data: experienceLevels.map(exp => salaryData[exp][index])
+        };
+    });
+
+    option = {
+        title: {
+            text: '工作经验与薪资分布',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+            formatter: function (params) {
+                var result = params[0].name + '<br/>';
+                params.forEach(function (item) {
+                    result += item.marker + ' ' + item.seriesName + ' : ' + item.value + '%<br/>';
+                });
+                return result;
+            }
+        },
+        legend: {
+            data: salaryRanges,
+            top: 'bottom'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            data: experienceLevels
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                formatter: '{value}%'
+            }
+        },
+        series: seriesData
+    };
+
+    option && myChart.setOption(option);
+</script>
+</html>

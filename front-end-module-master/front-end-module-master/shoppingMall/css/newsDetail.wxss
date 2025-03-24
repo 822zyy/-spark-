@@ -1,0 +1,65 @@
+.title{
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+page{
+  background-color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.time{
+  margin: 15px 0;
+  color: #ccc;
+  font-size: 14px;
+}
+.image image{
+  width: 100%;
+}
+.desc{
+  margin-top: 10px;
+  text-indent: 10px;
+}
+.share{
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #efefef;
+  color: rgb(145, 145, 145);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.share image{
+  width: 25px;
+  height: 25px;
+}
+button{
+  margin: 0;
+  background-color: #fff;
+  border: none;
+  outline: none;
+}
+.video{
+  width: 100%;
+  height: 250px;
+}
+.addComment{
+  position: absolute;
+  right: 10px;
+  bottom: 210px;
+  width: 30px;
+  height: 30px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #3b5a5f;
+  border-radius: 50%;
+  font-size: 18px;
+  z-index:100;
+  background-color: #fff;
+}

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="utf-8">
+    <title>求职智能分析系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <!-- App css -->
+    <link href="/static/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/static/css/app.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="body" class="dark-sidebar">
+<!-- leftbar-tab-menu -->
+<div class="left-sidebar">
+    <!-- LOGO -->
+    <div class="brand">
+        <a href="" class="logo">
+                    <span>
+                        <img src="/static/static/picture/logo-sm.png" alt="logo-small" class="logo-sm">
+                    </span>
+            <span>
+{#                        <img src="/static/static/picture/logo.png" alt="logo-large" class="logo-lg logo-light">#}
+{#                        <img src="/static/static/picture/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">#}
+                        <span style="color: #fff">求职智能分析系统</span>
+                    </span>
+        </a>
+    </div>
+    <div class="sidebar-user-pro media border-end">
+        <div class="position-relative mx-auto">
+            <img src="/static/static/picture/user-4.jpg" alt="user" class="rounded-circle thumb-md">
+            <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
+        </div>
+        <div class="media-body ms-2 user-detail align-self-center">
+            <h5 class="font-14 m-0 fw-bold">{{ userInfo.username }} </h5>
+            <p class="opacity-50 mb-0">用户名</p>
+        </div>
+    </div>
+    <div class="border-end">
+        <ul class="nav nav-tabs menu-tab nav-justified" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Main" role="tab" aria-selected="true"><span>Welcome！</span></a>
+            </li>
+            {#                    <li class="nav-item">#}
+            {#                        <a class="nav-link" data-bs-toggle="tab" href="#Extra" role="tab" aria-selected="false"><span>更多</span></a>#}
+            {#                    </li>#}
+        </ul>
+    </div>
+    <!-- Tab panes -->
+
+    <!--end logo-->
+    <div class="menu-content h-100" data-simplebar="">
+        <div class="menu-body navbar-vertical">
+            <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
+                <!-- Navigation -->
+                <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
+                    <li class="menu-label mt-0 text-primary font-12 fw-semibold"><span>导航栏</span><br><span
+                            class="font-10 text-secondary fw-normal">Navigation Bar</span></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarAnalytics">
+                            <i class="ti ti-stack menu-icon"></i>
+                            <span>数据可视化</span>
+                        </a>
+                        <div class="collapse " id="sidebarAnalytics">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/salaryChar/">薪资分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/educationChar/" class="nav-link ">经验分析</a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a href="/myApp/cityChar/" class="nav-link ">城市分析</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarAnalytics-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarCrypto" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarCrypto">
+                            <i class="ti ti-forms menu-icon"></i>
+                            <span>数据表格</span>
+                        </a>
+                        <div class="collapse " id="sidebarCrypto">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/dataChar/">工作职位数据</a>
+                                </li><!--end nav-item-->
+
+                            </ul><!--end nav-->
+                        </div><!--end sidebarCrypto-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarProjects" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarProjects">
+                            <i class="ti ti-user menu-icon"></i>
+                            <span>个人信息</span>
+                        </a>
+                        <div class="collapse " id="sidebarProjects">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/Usercenter/">用户中心</a>
+                                </li><!--end nav-item-->
+                                {#                                <li class="nav-item">#}
+                                {#                                    <a class="nav-link" href="/myApp/likedata">收藏数据</a>#}
+                                {#                                </li><!--end nav-item-->#}
+                            </ul><!--end nav-->
+                        </div><!--end sidebarProjects-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-cloud menu-icon"></i>
+                            <span>数据词云</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/cloudeChar">岗位词云</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="sidebarEcommerce">
+                            <i class="ti ti-brand-asana menu-icon"></i>
+                            <span>个性推荐</span>
+                        </a>
+                        <div class="collapse " id="sidebarEcommerce">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/myApp/recommend/">公司推荐</a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarEcommerce-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/myApp/dp_page/"><i class="ti ti-brand-hipchat menu-icon"></i><span>智能分析</span></a>
+                    </li><!--end nav-item-->
+            </div><!--end sidebarEcommerce-->
+            </li><!--end nav-item-->
+        </div><!--end sidebarCollapse-->
+    </div>
+</div>
+</div>
+<!-- end left-sidenav-->
+<!-- end leftbar-menu-->
+
+<!-- Top Bar Start -->
+<!-- Top Bar Start -->
+<div class="topbar">
+    <!-- Navbar -->
+    <nav class="navbar-custom" id="navbar-custom">
+        <ul class="list-unstyled topbar-nav float-end mb-0">
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <img src="/static/static/picture/user-4.jpg" alt="profile-user"
+                             class="rounded-circle me-2 thumb-sm">
+                        <div>
+                            <small class="d-none d-md-block font-11">{{ userInfo.username }}</small>
+                            <span class="d-none d-md-block fw-semibold font-12">用户名<i class="mdi mdi-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="/myApp/Usercenter/"><i
+                            class="ti ti-user font-16 me-1 align-text-bottom"></i> 个人信息</a>
+                    <a class="dropdown-item" href="/myApp/home"><i
+                            class="ti ti-chart-area-line font-16 me-1 align-text-bottom"></i> 可视化大屏</a>
+                    <div class="dropdown-divider mb-0"></div>
+                    <a class="dropdown-item" href="/myApp/logOut"><i
+                            class="ti ti-power font-16 me-1 align-text-bottom"></i> 退出登录</a>
+                </div>
+            </li><!--end topbar-profile-->
+        </ul><!--end topbar-nav-->
+
+        <ul class="list-unstyled topbar-nav mb-0">
+            <li>
+                <button class="nav-link button-menu-mobile nav-icon" id="togglemenu">
+                    <i class="ti ti-menu-2"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <!-- end navbar-->
+</div>
+<!-- Top Bar End -->
+<!-- Top Bar End -->
+
+<div class="page-wrapper">
+
+    <!-- Page Content-->
+    <div class="page-content-tab">
+
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <div class="float-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">系统</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item"><a href="#">数据可视化</a>
+                                </li><!--end nav-item-->
+                                <li class="breadcrumb-item active">城市分析</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">城市分析</h4>
+                    </div><!--end page-title-box-->
+                </div><!--end col-->
+            </div>
+            <!-- end page title end breadcrumb -->
+
+            {#主板页面城市分析#}
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h4 class="card-title">热门语言不同城市招聘岗位数据</h4>
+                                </div><!--end col-->
+                            </div>  <!--end row-->
+                        </div><!--end card-header-->
+                        <div class="card-body">
+                            <div class="row">
+                                <div id="mainA" style="width: 100%;height: 550px;"></div>
+                            </div>
+                        </div><!--end card-body-->
+                    </div><!--end card-->
+                </div><!--end col-->
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h4 class="card-title">公司规模</h4>
+                                </div><!--end col-->
+                                <div class="col-auto">
+                                    {#                                            <button type="button" class="btn btn-outline-light btn-sm" id="Counter_2_refresh">Random Refresh</button>#}
+                                </div> <!--end col-->
+                            </div>  <!--end row-->
+                        </div><!--end card-header-->
+                        <div class="card-body">
+                            <div id="Counter_2" class="gauge mt-2">
+                                <div id="mainB" style="width: 100%;height: 550px;"></div>
+                            </div>
+                        </div><!--end card-body-->
+                    </div><!--end card-->
+                </div><!--end col-->
+            </div><!--end row-->
+
+        </div><!-- container -->
+        <!--Start Rightbar-->
+        <!--Start Rightbar/offcanvas-->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="Appearance" aria-labelledby="AppearanceLabel">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
+                <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <h6>Account Settings</h6>
+                <div class="p-2 text-start mt-3">
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch1">
+                        <label class="form-check-label" for="settings-switch1">Auto updates</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch2" checked="">
+                        <label class="form-check-label" for="settings-switch2">Location Permission</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="settings-switch3">
+                        <label class="form-check-label" for="settings-switch3">Show offline Contacts</label>
+                    </div><!--end form-switch-->
+                </div><!--end /div-->
+                <h6>General Settings</h6>
+                <div class="p-2 text-start mt-3">
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch4">
+                        <label class="form-check-label" for="settings-switch4">Show me Online</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch5" checked="">
+                        <label class="form-check-label" for="settings-switch5">Status visible to all</label>
+                    </div><!--end form-switch-->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="settings-switch6">
+                        <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
+                    </div><!--end form-switch-->
+                </div><!--end /div-->
+            </div><!--end offcanvas-body-->
+        </div>
+        <!--end Rightbar/offcanvas-->
+        <!--end Rightbar-->
+
+        <!--Start Footer-->
+        <!-- Footer Start -->
+        {#                <footer class="footer text-center text-sm-start">Copyright &copy; 2022.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></footer>#}
+        <!-- end Footer -->
+        <!--end footer-->
+    </div>
+    <!-- end page content -->
+</div>
+<!-- end page-wrapper -->
+
+<!-- Javascript  -->
+
+<script src="/static/static/js/apexcharts.min.js"></script>
+<script src="/static/static/js/analytics-index.init.js"></script>
+
+
+<!-- App js -->
+<script src="/static/static/js/app.js"></script>
+
+</body>
+<script src="/static/static/js/echarts.js"></script>
+{#招聘热门城市#}
+<script>
+    var chartDom = document.getElementById('mainA');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    var cityData = {{ city_data|safe }};
+    var cities = Object.keys(cityData);
+    var languages = ['Java', 'C++', 'Python', 'PHP'];
+    var seriesData = [];
+
+    languages.forEach(function (language) {
+        var data = cities.map(function (city) {
+            return cityData[city][language];
+        });
+        seriesData.push({
+            name: language,
+            type: 'bar',
+            data: data
+        });
+    });
+
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: languages
+        },
+        xAxis: {
+            type: 'category',
+            data: cities
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: seriesData
+    };
+
+    option && myChart.setOption(option);
+</script>
+{#<script>#}
+{#    var chartDom = document.getElementById('mainA');#}
+{#    var myChart = echarts.init(chartDom);#}
+{#    var option;#}
+{##}
+{#    option = {#}
+{#        tooltip: {#}
+{#            trigger: 'axis',#}
+{#            axisPointer: {#}
+{#                type: 'cross',#}
+{#                crossStyle: {#}
+{#                    color: '#999'#}
+{#                }#}
+{#            }#}
+{#        },#}
+{#        toolbox: {#}
+{#            feature: {#}
+{#                dataView: {show: true, readOnly: false},#}
+{#                magicType: {show: true, type: ['line', 'bar']},#}
+{#                restore: {show: true},#}
+{#                saveAsImage: {show: true}#}
+{#            }#}
+{#        },#}
+{#        legend: {#}
+{#            data: ['Evaporation', 'Precipitation', 'Temperature']#}
+{#        },#}
+{#        xAxis: [#}
+{#            {#}
+{#                type: 'category',#}
+{#                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],#}
+{#                axisPointer: {#}
+{#                    type: 'shadow'#}
+{#                }#}
+{#            }#}
+{#        ],#}
+{#        yAxis: [#}
+{#            {#}
+{#                type: 'value',#}
+{#                name: 'Precipitation',#}
+{#                min: 0,#}
+{#                max: 250,#}
+{#                interval: 50,#}
+{#                axisLabel: {#}
+{#                    formatter: '{value} ml'#}
+{#                }#}
+{#            },#}
+{#            {#}
+{#                type: 'value',#}
+{#                name: 'Temperature',#}
+{#                min: 0,#}
+{#                max: 25,#}
+{#                interval: 5,#}
+{#                axisLabel: {#}
+{#                    formatter: '{value} °C'#}
+{#                }#}
+{#            }#}
+{#        ],#}
+{#        series: [#}
+{#            {#}
+{#                name: 'Evaporation',#}
+{#                type: 'bar',#}
+{#                tooltip: {#}
+{#                    valueFormatter: function (value) {#}
+{#                        return value + ' ml';#}
+{#                    }#}
+{#                },#}
+{#                data: [#}
+{#                    2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3#}
+{#                ]#}
+{#            },#}
+{#            {#}
+{#                name: 'Precipitation',#}
+{#                type: 'bar',#}
+{#                tooltip: {#}
+{#                    valueFormatter: function (value) {#}
+{#                        return value + ' ml';#}
+{#                    }#}
+{#                },#}
+{#                data: [#}
+{#                    2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3#}
+{#                ]#}
+{#            },#}
+{#            {#}
+{#                name: 'Temperature',#}
+{#                type: 'line',#}
+{#                yAxisIndex: 1,#}
+{#                tooltip: {#}
+{#                    valueFormatter: function (value) {#}
+{#                        return value + ' °C';#}
+{#                    }#}
+{#                },#}
+{#                data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]#}
+{#            }#}
+{#        ]#}
+{#    };#}
+{##}
+{#    option && myChart.setOption(option);#}
+{##}
+{#</script>#}
+{#公司规模#}
+
+<script>
+    // 热门城市计算机招聘热度
+
+
+    // 公司规模与城市对应的热力图
+    (function () {
+        var chartDom = document.getElementById('mainB');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        var cities = ['北京', '上海', '深圳', '广州', '杭州', '成都', '南京', '武汉', '西安', '厦门', '长沙', '苏州', '天津'];
+        var scales = ['0-10', '10-50', '50-150', '150-500', '500-1000', '1000+'];
+        var data = [];
+
+        for (var i = 0; i < scales.length; i++) {
+            for (var j = 0; j < cities.length; j++) {
+                var value;
+                if (['北京', '上海', '深圳', '广州'].includes(cities[j])) {
+                    value = Math.round(Math.random() * 50) + 50; // 大城市公司多
+                } else {
+                    value = Math.round(Math.random() * 50); // 其他城市公司少
+                }
+                data.push([j, i, value]);
+            }
+        }
+
+        option = {
+            tooltip: {
+                position: 'top',
+                formatter: function (params) {
+                    return '城市：' + cities[params.value[0]] + '<br/>' + '公司规模：' + scales[params.value[1]] + '<br/>' + '公司数量：' + params.value[2];
+                }
+            },
+            animation: false,
+            grid: {
+                left: '3%',
+                right: '8%',
+                bottom: '8%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: cities,
+                axisLabel: {
+                    interval: 0,
+                    rotate: 40
+                },
+                splitArea: {
+                    show: true
+                },
+                name: '城市'
+            },
+            yAxis: {
+                type: 'category',
+                data: scales,
+                splitArea: {
+                    show: true
+                },
+                name: '公司规模'
+            },
+            visualMap: {
+                min: 0,
+                max: 100,
+                calculable: true,
+                orient: 'horizontal',
+                left: 'center',
+                bottom: '1%',
+                text: ['100', '0'],
+                color: ['#d94e5d', '#eac736', '#50a3ba']
+            },
+            dataZoom: [
+                {
+                    id: 'dataZoomY',
+                    type: 'slider',
+                    yAxisIndex: [0],
+                    startValue: 0,
+                    endValue: 5,
+                    filterMode: 'empty'
+                }
+            ],
+            series: [{
+                name: '公司规模热力图',
+                type: 'heatmap',
+                data: data,
+                label: {
+                    show: true
+                },
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        };
+
+        myChart.setOption(option);
+    })();
+</script>
+
+</html>

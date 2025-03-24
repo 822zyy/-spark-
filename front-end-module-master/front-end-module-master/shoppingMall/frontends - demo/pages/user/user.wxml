@@ -1,0 +1,15 @@
+<view class="top">
+  <image class="user_cover" src="/images/background.jpg" mode="aspectFill"/>
+ 
+</view>
+<view class="control">
+  <view class="control-top">
+    
+  </view>
+  <view class="control-bottom">
+    
+  </view>
+</view>
+<view class="bottom">
+ 
+</view>

@@ -1,0 +1,10 @@
+<search bindsearch="search"></search>
+<view class="navbar">
+      <view bindtap="changeNavBarItem" data-item="{{item}}" class="navbar-item {{item == activeBar ? 'active' : ''}} " wx:for="{{navbarList}}">
+        {{item}}
+      </view>
+</view>
+<view class="content">
+ 
+  
+</view>

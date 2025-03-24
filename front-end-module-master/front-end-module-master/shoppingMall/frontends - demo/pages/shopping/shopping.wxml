@@ -1,0 +1,12 @@
+<search bindsearch="search"></search>
+<view class="top">
+  <view wx:for="{{navList}}" class="top-item">
+    <image src="{{backgroundList[index]}}" mode="aspectFill"/>
+    <view class="text">
+      {{item}} 
+    </view>
+  </view>
+</view>
+<view class="shop">
+
+</view>

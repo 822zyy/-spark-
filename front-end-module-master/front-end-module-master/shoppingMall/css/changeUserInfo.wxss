@@ -1,0 +1,23 @@
+/* pages/perinfo/index.wxss */
+page{
+  background-color: #efefef;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.detail{
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 96%;
+  margin: 10px 2%;
+}
+.delist{
+    margin-bottom: 10px;
+}
+.rzbnt{
+  margin-top: 400rpx;
+}
+.van-cell--large {
+  margin-bottom: 5px;
+}

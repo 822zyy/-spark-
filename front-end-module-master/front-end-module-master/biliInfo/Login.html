@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            alert('{{ message }}');
+        {% endfor %}
+    </script>
+{% endif %}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>登录</title>
+
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/loginNew.css">
+
+</head>
+
+<body>
+
+<div class="containerNew" style="margin: 0 auto">
+
+    <div class="row">
+                <div class="content">
+            <div class="main">
+                <div class="title">
+                    <h1>登录</h1>
+                </div>
+
+                <form  class="user" method="POST" role="form" action="/myApp/login/" id="form_login">
+                    <div class="form-group">
+                        <input type="username"  class="form-control form-control-user"
+                              name="username" id="username" placeholder="Username" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input type="password"  class="form-control form-control-user"
+                                name="password" id="password" placeholder="Password" autocomplete="off">
+                    </div>
+
+                    <button class="btn btn-primary btn-user btn-block" style="background-color: #1a2035">
+                        登录
+                    </button>
+                    <hr>
+
+                </form>
+                <hr>
+
+                <div class="determine">
+                    <a class="small" href="/myApp/registry/" style="color: #1a2035">创建一个账号~</a>
+                </div>
+            </div>
+        </div>
+        <div class="image" style="background: url('/static/assets/img/examples/example12.jpeg') center center ;background-size: cover;">
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
